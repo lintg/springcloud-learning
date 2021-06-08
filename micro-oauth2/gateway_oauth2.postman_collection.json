@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "8fb8c6db-ab79-46e4-8fce-c204bca73925",
+		"name": "gateway_oauth2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "获取Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "client-app",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "macro",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9201/auth/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9201",
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9201/api/hello",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJtYWNybyIsInNjb3BlIjpbImFsbCJdLCJpZCI6MSwiZXhwIjoxNjIzMTQ1NTc5LCJhdXRob3JpdGllcyI6WyJBRE1JTiJdLCJqdGkiOiIyMGI4MGRiMC1hMjExLTQwMTgtOGE1Zi1lZDljZDQyMDA4MjAiLCJjbGllbnRfaWQiOiJjbGllbnQtYXBwIn0.VWI3Dpa4bbNVQvX54ezqoZdNpK8P8eh9nVxsG0alvYeL4nwoCIB78wPijN2HVpI2BMggBbhK8ZAf8KDCdBIHGU4bneYweTyg54qIoP2Mk8LrDGWiSLe2fXuhzJ64IzWltbIRyoOELmGifB_eDstOV5Ak5fm2Lb2GtEPSlEg9Bo8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9201/api/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9201",
+					"path": [
+						"api",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刷新Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "grant_type",
+						"value": "refresh_token",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_id",
+						"value": "client-app",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_secret",
+						"value": "123456",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "refresh_token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJtYWNybyIsInNjb3BlIjpbImFsbCJdLCJpZCI6MSwiZXhwIjoxNjIzMTQ2NzI5LCJhdXRob3JpdGllcyI6WyJBRE1JTiJdLCJqdGkiOiIxYzVkZWJlYi0yODc2LTQ5OGEtOTlkMC1iYjI2M2JjMzRmOWYiLCJjbGllbnRfaWQiOiJjbGllbnQtYXBwIn0.RPRIPGCZC2p11GUtVKkkjhemk3z9tBazxz-84rTpj_GvCN6c3cHLkCL5L084PQh2pnxykLXT19qOvVZdXqGF69R6aUyV6HFJbAsuOie6M6ezj_Jz2_X5RG5JFWYBXhwIesuOiW708t4dX8a4VbOrXHB8qhfsVMPkj4qtIqlM0ho",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "client-app",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJtYWNybyIsInNjb3BlIjpbImFsbCJdLCJhdGkiOiIxYzVkZWJlYi0yODc2LTQ5OGEtOTlkMC1iYjI2M2JjMzRmOWYiLCJpZCI6MSwiZXhwIjoxNjIzMjI5NTI5LCJhdXRob3JpdGllcyI6WyJBRE1JTiJdLCJqdGkiOiIwYTQ0OTMyNy02YzRlLTRkNDgtOWUyMi1jMWVjMjUwYzExYWMiLCJjbGllbnRfaWQiOiJjbGllbnQtYXBwIn0.KSBuIpHqIhJMI5u9mDvdBl7VhzWdu-6-08uo2esew44SMipCnH8n7owxHgpqRx56cZrJXrKlz9MjbpTP5DKxgO5OJrtjEVdPaFkXWuvPxPUJR26K0owEqxKwjFWPisXQC_UINyxSf5gGcDIwLKEJXT7HK9DZ8Xx7L-Ei_JQ84Tg",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9201/auth/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9201",
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"disabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "client-app",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取当前登录用户信息",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJtYWNybyIsInNjb3BlIjpbImFsbCJdLCJpZCI6MSwiZXhwIjoxNjIzMTQ3MDkxLCJhdXRob3JpdGllcyI6WyJBRE1JTiJdLCJqdGkiOiJiNzg0ODkxNS0xZTU3LTQ5ZTYtYmEwYS1mMmY5NDU2MGZmZGUiLCJjbGllbnRfaWQiOiJjbGllbnQtYXBwIn0.UZhh0QtpNRg53TJAE_5fkdsJRNF2M0rbg4c2VuCKiNPBV6e3Txb7aAqeItsyhC0x0_lUdJ0hdKDKCk5T5Du3XDgKoFT1H9FoYba15JA5ZkIiZL_fxYGhAveMFYJlzh0qpWch4z8jIn0cUaQJIpFdivjv34YibPKqEH64EilEVKs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9201/api/user/currentUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9201",
+					"path": [
+						"api",
+						"user",
+						"currentUser"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
